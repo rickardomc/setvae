@@ -48,6 +48,7 @@ class Uniform15KPC(torch.utils.data.Dataset):
         self.all_cate_mids = []
         self.cate_idx_lst = []
         self.all_points = []
+        # per ogni classe
         for cate_idx, subd in enumerate(self.subdirs):
             # NOTE: [subd] here is synset id
             sub_path = os.path.join(root, subd, self.split)
@@ -71,13 +72,14 @@ class Uniform15KPC(torch.utils.data.Dataset):
                     continue
 
                 assert point_cloud.shape[0] == 2048
-                self.all_points.append(point_cloud[np.newaxis, ...])
+                self.all_points.append(point_cloud[np.newaxis, ...])  # aggiunge una colonna all'array
                 self.cate_idx_lst.append(cate_idx)
-                self.all_cate_mids.append((subd, mid))
+                self.all_cate_mids.append((subd, mid))  # cartella : <train|test|val>
 
         # Shuffle the index deterministically (based on the number of examples)
         self.shuffle_idx = list(range(len(self.all_points)))
         random.Random(38383).shuffle(self.shuffle_idx)
+        # riordina gli array secondo gli idx mescolati
         self.cate_idx_lst = [self.cate_idx_lst[i] for i in self.shuffle_idx]
         self.all_points = [self.all_points[i] for i in self.shuffle_idx]
         self.all_cate_mids = [self.all_cate_mids[i] for i in self.shuffle_idx]
@@ -106,8 +108,10 @@ class Uniform15KPC(torch.utils.data.Dataset):
                 self.all_points_std = self.all_points.reshape(-1).std(axis=0).reshape(1, 1, 1)
 
         self.all_points = (self.all_points - self.all_points_mean) / self.all_points_std
-        self.train_points = self.all_points[:, :10000]
-        self.test_points = self.all_points[:, 10000:]
+        all_point_size = self.all_points.shape[1]
+        split_size = int(all_point_size / 2)
+        self.train_points = self.all_points[:, :split_size]
+        self.test_points = self.all_points[:, all_point_size - split_size:]
 
         self.tr_sample_size = min(10000, tr_sample_size)
         self.te_sample_size = min(5000, te_sample_size)
