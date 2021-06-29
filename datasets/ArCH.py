@@ -70,7 +70,7 @@ class Uniform15KPC(torch.utils.data.Dataset):
                 except:
                     continue
 
-                assert point_cloud.shape[0] == 15000
+                assert point_cloud.shape[0] == 2048
                 self.all_points.append(point_cloud[np.newaxis, ...])
                 self.cate_idx_lst.append(cate_idx)
                 self.all_cate_mids.append((subd, mid))
@@ -206,7 +206,6 @@ class ShapeNet15kPointClouds(Uniform15KPC):
         else:
             self.synset_ids = [cate_to_synsetid[c] for c in self.cates]
 
-        assert 'v2' in root, "Only supporting v2 right now."
         self.gravity_axis = 1
         self.display_axis_order = [0, 2, 1]
 

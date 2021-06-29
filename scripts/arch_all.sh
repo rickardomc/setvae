@@ -14,7 +14,7 @@ epochs=100
 scheduler="linear"
 dataset_type=arch
 log_name=gen/shapenet15k-airplane/camera-ready
-shapenet_data_dir="/contents/arch_by_class_npy"
+shapenet_data_dir="/content/arch_by_class_npy"
 
 deepspeed train.py \
   --cates all \
