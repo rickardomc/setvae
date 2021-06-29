@@ -14,10 +14,10 @@ epochs=100
 scheduler="linear"
 dataset_type=arch
 log_name=gen/shapenet15k-airplane/camera-ready
-shapenet_data_dir="arch_by_class_npy"
+shapenet_data_dir="/contents/arch_by_class_npy"
 
 deepspeed train.py \
-  --cates airplane \
+  --cates all \
   --input_dim ${input_dim} \
   --max_outputs ${max_outputs} \
   --init_dim ${init_dim} \
