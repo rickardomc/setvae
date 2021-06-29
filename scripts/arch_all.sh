@@ -46,7 +46,7 @@ deepspeed train.py \
   --eval \
   --seed 42 \
   --distributed \
-  --deepspeed_config batch_size_128.json
+  --deepspeed_config batch_size.json
 
 echo "Done"
 exit 0
