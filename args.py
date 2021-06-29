@@ -92,7 +92,7 @@ def add_args(parser):
     # data options
     parser.add_argument('--dataset_type', default='shapenet15k', type=str,
                         help='Dataset to train on, one of ShapeNet / MNIST / MultiMNIST',
-                        choices=['shapenet15k', 'mnist', 'multimnist'])
+                        choices=['shapenet15k', 'mnist', 'multimnist', 'arch'])
     parser.add_argument('--num_workers', type=int, default=4,
                         help='Number of data loading threads')
     # ShapeNet options
