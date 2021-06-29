@@ -12,7 +12,7 @@ import torch.utils.data
 # taken from https://github.com/optas/latent_3d_points/blob/8e8f29f8124ed5fc59439e8551ba7ef7567c9a37/src/in_out.py
 synsetid_to_cate = {
     '0_arch': 'archi', '1_columns': 'colonne', '2_moldings': 'moldings', '3_floor': 'pavimento',
-    '4_door_windows': 'porte_finestre', '5_wall': 'muri', '6_stairs': 'scale', '7_vault': 'volte',
+    '4_doors_windows': 'porte_finestre', '5_wall': 'muri', '6_stairs': 'scale', '7_vault': 'volte',
     '8_roof': 'pavimento', '9_others': 'altro'
 }
 cate_to_synsetid = {v: k for k, v in synsetid_to_cate.items()}
