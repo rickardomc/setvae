@@ -14,7 +14,7 @@ log_name=gen/shapenet15k-airplane/camera-ready
 shapenet_data_dir="/content/arch_by_class_npy"
 
 python sample_and_summarize.py \
-  --cates all \
+  --cates colonne \
   --input_dim ${input_dim} \
   --max_outputs ${max_outputs} \
   --init_dim ${init_dim} \
