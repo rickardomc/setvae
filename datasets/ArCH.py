@@ -8,6 +8,7 @@ import numpy as np
 
 import torch
 import torch.utils.data
+from args import get_args
 
 # taken from https://github.com/optas/latent_3d_points/blob/8e8f29f8124ed5fc59439e8551ba7ef7567c9a37/src/in_out.py
 synsetid_to_cate = {
@@ -109,7 +110,9 @@ class Uniform15KPC(torch.utils.data.Dataset):
 
         self.all_points = (self.all_points - self.all_points_mean) / self.all_points_std
         all_point_size = self.all_points.shape[1]
-        split_size = int(all_point_size / 2 * 3)
+        print(all_point_size)
+        exit()
+        split_size = int(all_point_size / 3 * 2)
         self.train_points = self.all_points[:, :split_size]
         self.test_points = self.all_points[:, all_point_size - split_size:]
 
@@ -294,7 +297,8 @@ def build(args):
 
 
 if __name__ == "__main__":
-    shape_ds = ShapeNet15kPointClouds(categories=['all'], split='train')
+    args = get_args()
+    shape_ds = ShapeNet15kPointClouds(categories=[args.cates], split='train')
     print(f"Train data statistics: mean {shape_ds.all_points_mean}, std {shape_ds.all_points_std}")
     x = shape_ds.__getitem__(0)
     for k in x.keys():
