@@ -110,8 +110,7 @@ class Uniform15KPC(torch.utils.data.Dataset):
 
         self.all_points = (self.all_points - self.all_points_mean) / self.all_points_std
         all_point_size = self.all_points.shape[1]
-        print(all_point_size)
-        exit()
+
         split_size = int(all_point_size / 3 * 2)
         self.train_points = self.all_points[:, :split_size]
         self.test_points = self.all_points[:, all_point_size - split_size:]
