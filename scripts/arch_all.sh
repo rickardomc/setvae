@@ -10,14 +10,14 @@ num_heads=4
 
 lr=1e-3
 beta=1.0
-epochs=100
+epochs=8000
 scheduler="linear"
 dataset_type=arch
-log_name=gen/shapenet15k-airplane/camera-ready
+log_name=gen/arch-scale/camera-ready
 shapenet_data_dir="/content/arch_by_class_npy"
 
 deepspeed train.py \
-  --cates all \
+  --cates scale \
   --input_dim ${input_dim} \
   --max_outputs ${max_outputs} \
   --init_dim ${init_dim} \

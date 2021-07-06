@@ -9,13 +9,13 @@ hidden_dim=64
 num_heads=4
 
 dataset_type=arch
-log_name=gen/shapenet15k-airplane/camera-ready
+log_name=gen/arch-scale/camera-ready
 shapenet_data_dir="/content/arch_by_class_npy"
-epoch=100
+epoch=8000
 seed=34678
 
 python sample_and_test_all.py \
-  --cates all \
+  --cates scale \
   --epochs "${epoch}" \
   --input_dim ${input_dim} \
   --max_outputs ${max_outputs} \
