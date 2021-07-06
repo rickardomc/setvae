@@ -108,9 +108,9 @@ def add_args(parser):
                         help='Whether to perform normalization per axis.')
     parser.add_argument('--denormalized_loss', action='store_true',
                         help='Whether to perform denormalization before loss computation.')
-    parser.add_argument("--tr_max_sample_points", type=int, default=1024,
+    parser.add_argument("--tr_max_sample_points", type=int, default=2048,
                         help='Max number of sampled points (train)')
-    parser.add_argument("--te_max_sample_points", type=int, default=1024,
+    parser.add_argument("--te_max_sample_points", type=int, default=2048,
                         help='Max number of sampled points (test)')
     parser.add_argument("--standardize_per_shape", action='store_true',
                         help='Whether to perform standardization per shape')

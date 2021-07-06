@@ -10,7 +10,7 @@ num_heads=4
 
 epochs=100
 dataset_type=arch
-log_name=gen/shapenet15k-airplane/camera-ready
+log_name=gen/arch-scale/camera-ready
 shapenet_data_dir="/content/arch_by_class_npy"
 
 python sample_and_summarize.py \
