@@ -11,7 +11,7 @@ num_heads=4
 epochs=100
 dataset_type=arch
 log_name=gen/arch-scale/camera-ready
-shapenet_data_dir="/content/arch_by_class_npy"
+shapenet_data_dir="/content/arch_by_class_npy_traslato"
 
 python sample_and_summarize.py \
   --cates colonne \

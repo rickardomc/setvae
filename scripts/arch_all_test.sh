@@ -10,7 +10,7 @@ num_heads=4
 
 dataset_type=arch
 log_name=gen/arch-scale/camera-ready
-shapenet_data_dir="/content/arch_by_class_npy"
+shapenet_data_dir="/content/arch_by_class_npy_traslato"
 epoch=8000
 seed=34678
 

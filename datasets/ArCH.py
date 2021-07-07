@@ -196,7 +196,7 @@ class Uniform15KPC(torch.utils.data.Dataset):
 
 
 class ShapeNet15kPointClouds(Uniform15KPC):
-    def __init__(self, root="/data/arch_by_class_npy",
+    def __init__(self, root="/data/arch_by_class_npy_traslato",
                  categories=['airplane'], tr_sample_size=10000, te_sample_size=2048,
                  split='train', scale=1., normalize_per_shape=False,
                  standardize_per_shape=False,
